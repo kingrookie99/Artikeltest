@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC>
+
+ <html>
+
+<head>
+
+    <title>Test</title>
+
+    <link rel="Stylesheet"  href="style.css"/>
+
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+<body>
+
+<h1>Artikelliste</h1>
+
+              <form id="mycontact">
+
+                     <fieldset>
+
+                           <legend>Neue Artikel</legend>
+
+                           <ol>
+
+                                  <li>
+                                         <label for="username">Name Author</label>
+                                         <input id="username" type="text" placeholder="name Autor" required autofocus pattern=" ">
+                                         <input type="hidden" id="id"/>
+                                  </li>
+
+                                  <li>
+                                         <label for="useremail">Email</label>
+                                         <input id="useremail" type="text" placeholder="example@domain.com" required pattern=" ">
+                                  </li>
+                                  <li>
+                                         <label for="headline">Headline</label>
+                                         <input id="headline" type="text" placeholder="headline" required autofocus pattern=" ">
+                                         <input type="hidden" id="id"/>
+                                  </li>
+
+                                  <li>
+                                         <label for="teaser">Teaser</label>
+                                         <textarea id="teaser" name="teaser" style="height:50px;" placeholder="Teasertext" required pattern=" "></textarea>
+                                  </li>
+                           </ol>
+
+                     </fieldset>
+
+                <button id="btnReset" type=submit>Reset</button>
+
+                     <button id="submitButton" type="submit">SAVE</button>
+
+                <button id="btnUpdate" type=submit>UPDATE</button>
+
+                <button id="btnDrop" type=submit>DROP</button>
+
+              </form><br />
+
+        <div id="results"></div>
+
+</body>
+
+ <script type="text/javascript" src="mysqlite.js"> </script>
+
+</html>
+
+<span style="font-family: Calibri; font-size: small;">
