@@ -11,9 +11,7 @@ if(isset($_GET['logout']))
 }
 else
 {
-
-
-
+     
     //phpinfo();
     //echo $_SERVER["DOCUMENT_ROOT"]."<br /><br />";
     if(isset($_POST['email']) && isset($_POST['password']) || (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1))
@@ -37,12 +35,12 @@ else
                 $_SESSION["firstname"] = $row->firstname;
                 $_SESSION["surname"] = $row->surname;
                 $_SESSION["admin"] = $row->admin;
-
-
-
-
-
-
+          
+           
+                //include($documentRoot."tpl/session_data.php");
+           
+           
+            
             }
             else
             {
@@ -55,20 +53,14 @@ else
         }
         else
         {
-
-
-?>
-    
-
-        <?php
-
-
-
-
+            
+            //include($documentRoot."tpl/session_data.php");
 
         }
 
-
+        echo '<div class="loginWindow">';
+        include ($documentRoot."tpl/session_data.php");
+        echo '</div>'; 
     }
     else{
 
@@ -84,12 +76,10 @@ else
             Dein Passwort:<br>
             <input type="password" size="24" maxlength="50" name="password"><br>
             <input type="submit" value="Abschicken">
-          </form>
-    <?php
+          </form>    
+    <?php  
     }
-    echo '<div class="loginWindow">';
-    include ($documentRoot."tpl/session_data.php");
-    echo '</div>';
+    
 }
 
 ?>
