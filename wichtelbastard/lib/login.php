@@ -1,5 +1,5 @@
 <?php
-$root = "http://localhost/wichtelbastard/wichtelbastard";
+$root = "http://localhost:8888/newHtdocs/atom/Artikeltest3";
 
 if(isset($_GET['logout']))
 {
@@ -11,7 +11,7 @@ if(isset($_GET['logout']))
 }
 else
 {
-    echo '<pre>'; print_r($_SESSION); echo '</pre>';  
+    echo '<pre>'; print_r($_SESSION); echo '</pre>';
     //phpinfo();
     //echo $_SERVER["DOCUMENT_ROOT"]."<br /><br />";
     if(isset($_POST['email']) && isset($_POST['password']) || (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1))
@@ -52,12 +52,12 @@ else
         }
         else
         {
-            
+
 ?>
            Du bist eingeloggt.<br />
            Deine Daten sind:<br />
            ...<br />
-           
+
            <a href="<?=$root?>/index.php?logout">Logout</a>
         <?php
 
@@ -79,8 +79,8 @@ else
             Dein Passwort:<br>
             <input type="password" size="24" maxlength="50" name="password"><br>
             <input type="submit" value="Abschicken">
-          </form>    
-    <?php  
+          </form>
+    <?php
     }
 
 }
