@@ -10,3 +10,11 @@ td {
     padding:5px;
     border:1px solid #111;
 }
+.loginWindow {
+    position:absolute;
+    background-color:coral;
+    padding:30px;
+    right:0px;
+    top:0px;
+    border:3px solid #000;
+}

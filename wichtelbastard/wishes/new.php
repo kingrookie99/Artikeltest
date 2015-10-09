@@ -1,6 +1,6 @@
 <?php
-    include('../tpl/header.php');
     include('../conf.php');
+    include('../tpl/header.php');
     if (isset($_POST['submitted'])) {
         foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }
         $sql = "INSERT INTO `wishes` ( `title` ,  `shortDescription`  ) VALUES(  '{$_POST['title']}' ,  '{$_POST['shortDescription']}'  ) ";

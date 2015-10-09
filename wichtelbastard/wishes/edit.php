@@ -1,7 +1,7 @@
 <?php
-    include('../tpl/header.php');
-    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
     include('../conf.php');
+    include($documentRoot.'tpl/header.php');
+    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
         if (isset($_POST['submitted'])) {
@@ -24,5 +24,5 @@
 
 <? 
     } 
-    include('../tpl/footer.php');
+    include($documentRoot.'tpl/footer.php');
 ?>

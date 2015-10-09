@@ -1,8 +1,8 @@
 
 <?php
   include('../conf.php');
-    include('../tpl/header.php');
-    echo '<a href="../attendants/list.php">Zurück zu den Teilnehmern</a>';
+    include($documentRoot.'tpl/header.php');
+    echo '<a href="'.$root.'attendants/list.php">Zurück zu den Teilnehmern</a>';
   
     echo "<table border=1 >";
     echo "<tr>";
@@ -26,5 +26,5 @@
     }
     echo "</table>";
     echo "<a href=new.php>New Row</a>";
-    include('../tpl/footer.php');
+    include($documentRoot.'tpl/footer.php');
 ?>
