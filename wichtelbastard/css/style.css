@@ -26,6 +26,7 @@ td {
     padding:15px 30px;
     right:0px;
     top:0px;
+    width:250px;
 }
 .loginWindow a {
     color:#fff;
@@ -36,7 +37,17 @@ td {
 .loginWindow .name,.loginWindow .email,.loginWindow .status {
     margin-top:10px;
 }
-
+.mobileOpener,.mobileCloser {
+    width:50px;
+    height:50px;
+    position:absolute;
+    left:-50px;
+    background:red;
+    top:0px;
+}
+.mobileOpener,.mobileCloser {
+    display:none;
+}
 
 
 
@@ -76,5 +87,11 @@ td {
 @media(max-width:767px) {
     h1 {
         font-size:1.5em;
+    }
+    .loginWindow {
+        right:-250px;
+    }
+    .mobileOpener {
+        display:block;
     }
 }

@@ -1,7 +1,7 @@
   </div>
 
   <div id="footer">
-     Copyright Wichtelbastard
+     &copy; Wichtelbastard
   </div>
     </body>
 </html>
