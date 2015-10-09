@@ -37,7 +37,7 @@ else
                 $_SESSION["admin"] = $row->admin;
           
            
-                include($documentRoot."tpl/session_data.php");
+                //include($documentRoot."tpl/session_data.php");
            
            
             
@@ -54,11 +54,13 @@ else
         else
         {
             
-            include($documentRoot."tpl/session_data.php");
+            //include($documentRoot."tpl/session_data.php");
 
         }
 
-
+        echo '<div class="loginWindow">';
+        include ($documentRoot."tpl/session_data.php");
+        echo '</div>'; 
     }
     else{
 
@@ -77,9 +79,7 @@ else
           </form>    
     <?php  
     }
-    echo '<div class="loginWindow">';
-    include ($documentRoot."tpl/session_data.php");
-    echo '</div>'; 
+    
 }
 
 ?>
