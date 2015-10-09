@@ -1,5 +1,5 @@
 <?php
-    include('../conf.php');
+    include('conf.php');
     include('tpl/header.php');
 
     require_once('lib/login.php')
