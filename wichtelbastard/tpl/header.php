@@ -20,17 +20,9 @@
 
     <body>
     <div class="header">
-      <div class="bastard">
-          <img src="<?=$root?>img/wichtel-bastard.png" />
-      </div>
+      <img src="<?=$root?>img/wichtel-bastard.png" />
       <?
         require_once($documentRoot."lib/login.php")
       ?>
    </div>
    <div id="content">
-
-   </div>
-
-   <div id="footer">
-      &copy; Wichtel-Bastard
-  </div>
