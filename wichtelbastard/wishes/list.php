@@ -1,8 +1,9 @@
 
 <?php
+  include('../conf.php');
     include('../tpl/header.php');
     echo '<a href="../attendants/list.php">Zurück zu den Teilnehmern</a>';
-    include('../conf.php');
+  
     echo "<table border=1 >";
     echo "<tr>";
     echo "<td><b>Id</b></td>";

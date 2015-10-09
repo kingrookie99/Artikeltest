@@ -1,8 +1,9 @@
 
 <?php
+   include('../conf.php');
     include('../tpl/header.php');
     echo '<a href="../index.php">Zurück zum Start</a> || <a href="../wishes/list.php">Wunsch-Liste</a>';
-    include('../conf.php');
+ 
     echo "<table border=1 >";
     echo "<tr>";
     echo "<td><b>Id</b></td>";
