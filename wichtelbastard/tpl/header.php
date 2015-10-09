@@ -26,9 +26,3 @@
       ?>
    </div>
    <div id="content">
-
-   </div>
-
-   <div id="footer">
-      Copyright Wichtelbastard
-  </div>
