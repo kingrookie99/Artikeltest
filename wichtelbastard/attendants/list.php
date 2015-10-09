@@ -1,8 +1,8 @@
 
 <?php
    include('../conf.php');
-    include('../tpl/header.php');
-    echo '<a href="../index.php">Zurück zum Start</a> || <a href="../wishes/list.php">Wunsch-Liste</a>';
+    include($documentRoot.'tpl/header.php');
+    echo '<a href="'.$root.'">Zurück zum Start</a> || <a href="'.$root.'/wishes/list.php">Wunsch-Liste</a>';
  
     echo "<table border=1 >";
     echo "<tr>";
@@ -40,5 +40,5 @@
 ?>
 
 <?php
-    include('../tpl/footer.php');
+    include($documentRoot.'tpl/footer.php');
 ?>

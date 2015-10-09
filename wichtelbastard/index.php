@@ -1,25 +1,23 @@
 <?php
     include('conf.php');
-    include('tpl/header.php');
+    include($documentRoot.'tpl/header.php');
     
-    if(isset($_SESSION['admin'])&& $_SESSION['admin']==1)
-    {?>
-    
-        <a href="attendants/list.php">Teilnehmer</a>     
-        
-    <?php
-    }
-    else{
-        ?>
-        
-        <a href="#">Gehe zu deinem Profil!</a>
-        
-        <?
-    }
-        
-   
-    
-    
+    if(isset($_SESSION['loggedIn'])) {
+        if(isset($_SESSION['admin'])&& $_SESSION['admin']==1)
+        {?>
 
-    include('tpl/footer.php');
+            <a href="<?=$root?>attendants/list.php">Teilnehmer</a>     
+
+        <?php
+        }
+        else{
+            ?>
+
+            <a href="#">Gehe zu deinem Profil!</a>
+
+            <?
+        }
+    }
+    
+    include($documentRoot.'tpl/footer.php');
 ?>
