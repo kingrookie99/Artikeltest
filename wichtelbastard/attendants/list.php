@@ -1,6 +1,7 @@
-<a href="../index.php">Zurück zum Start</a>
+
 <?php
     include('../tpl/header.php');
+    echo '<a href="../index.php">Zurück zum Start</a> || <a href="../wishes/list.php">Wunsch-Liste</a>';
     include('../conf.php');
     echo "<table border=1 >";
     echo "<tr>";
@@ -12,20 +13,23 @@
     echo "<td><b>Email</b></td>";
     echo "<td><b>ConterId</b></td>";
     echo "<td><b>NonConterId</b></td>";
+    echo "<td><b>Admin</b></td>";
+    echo "<td></td><td></td>";
     echo "</tr>";
 
     $result = mysql_query("SELECT * FROM `attendants`") or trigger_error(mysql_error());
     while($row = mysql_fetch_array($result)){
         foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }
         echo "<tr>";
-        echo "<td valign='top'>" . nl2br( $row['id']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['firstname']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['surname']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['pic']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['password']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['email']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['conterId']) . "</td>";
-        echo "<td valign='top'>" . nl2br( $row['nonConterId']) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['id'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['firstname'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['surname'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['pic'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['password'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['email'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['conterId'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['nonConterId'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( utf8_encode($row['admin'])) . "</td>";
         echo "<td valign='top'><a href=edit.php?id={$row['id']}>Edit</a></td><td><a href=delete.php?id={$row['id']}>Delete</a></td> ";
         echo "</tr>";
     }
@@ -33,9 +37,7 @@
     echo "<a href=new.php>New Row</a>";
 
 ?>
-<div style="width:90%;height:30px;background:#ff0000"></div>
 
-<a href="../wishes/list.php">Wunsch-Liste</a>
 <?php
     include('../tpl/footer.php');
 ?>

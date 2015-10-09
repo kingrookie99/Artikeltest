@@ -1,5 +1,6 @@
 <?php
     include('../tpl/header.php');
+    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
     include('../conf.php');
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
@@ -17,6 +18,7 @@
         <form action='' method='POST'>
             <p><b>Titel:</b><br /><input type='text' name='title' value='<?= stripslashes($row['title']) ?>' />
             <p><b>Kurzbeschreibung:</b><br /><input type='text' name='shortDescription' value='<?= stripslashes($row['shortDescription']) ?>' />
+            <p><b>Wo zu kaufen? (Link o. Laden):</b><br /><input type='text' name='store' value='<?= stripslashes($row['store']) ?>' />
             <p><input type='submit' value='Edit Row' /><input type='hidden' value='1' name='submitted' />
         </form>
 

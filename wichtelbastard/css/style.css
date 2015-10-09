@@ -1,0 +1,12 @@
+.back,a {
+    color:darkorange;
+}
+table {
+    border:none;
+    border-collapse: collapse;
+    margin:20px 0px;
+}
+td {
+    padding:5px;
+    border:1px solid #111;
+}

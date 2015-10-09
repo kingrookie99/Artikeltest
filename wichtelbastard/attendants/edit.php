@@ -1,5 +1,6 @@
 <?php
     include('../tpl/header.php');
+    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
     include('../conf.php');
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
