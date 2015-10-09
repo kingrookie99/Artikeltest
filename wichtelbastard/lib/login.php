@@ -58,11 +58,8 @@ else
 
 
 ?>
-           Du bist eingeloggt.<br />
-           Deine Daten sind:<br />
-           ...<br />
+    
 
-           <a href="<?=$root?>/index.php?logout">Logout</a>
         <?php
 
 
