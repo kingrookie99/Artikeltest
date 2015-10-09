@@ -1,12 +1,12 @@
 <?php
     include('conf.php');
     include($documentRoot.'tpl/header.php');
-    
+
     if(isset($_SESSION['loggedIn'])) {
         if(isset($_SESSION['admin'])&& $_SESSION['admin']==1)
         {?>
 
-            <a href="<?=$root?>attendants/list.php">Teilnehmer</a>     
+            <a href="<?=$root?>attendants/list.php">Teilnehmer</a>
 
         <?php
         }
@@ -18,6 +18,6 @@
             <?
         }
     }
-    
+
     include($documentRoot.'tpl/footer.php');
 ?>
