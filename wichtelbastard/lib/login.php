@@ -69,13 +69,18 @@ else
             $action = $root.'index.php';
 
         ?>
-          <form action="<?=$action?>" method="post">
-            Deine Wichtelbastard-E-Mail:<br>
-            <input type="text" size="24" maxlength="50"name="email"><br><br>
+          <form action="<?=$action?>" method="post" class="loginForm">
+           <h1>Herzlich Willkommen beim Wichtel-Bastard!</h1>
+           Bitte melde dich an<br>
+           <hr>
+           <div class="fields">
+                <label>Deine E-Mail:</label><br>
+                <input type="text" maxlength="50"name="email"><br>
 
-            Dein Passwort:<br>
-            <input type="password" size="24" maxlength="50" name="password"><br>
-            <input type="submit" value="Abschicken">
+                <label>Dein Passwort:</label><br>
+                <input type="password" maxlength="50" name="password"><br>
+                <input type="submit" value="Abschicken">
+            </div>
           </form>    
     <?php  
     }

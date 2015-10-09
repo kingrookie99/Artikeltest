@@ -20,7 +20,9 @@
 
     <body>
     <div class="header">
-      <img src="<?=$root?>img/wichtel-bastard.png" />
+      <div class="bastard">
+          <img src="<?=$root?>img/wichtel-bastard.png" />
+      </div>
       <?
         require_once($documentRoot."lib/login.php")
       ?>
@@ -30,5 +32,5 @@
    </div>
 
    <div id="footer">
-      Copyright Wichtelbastard
+      &copy; Wichtel-Bastard
   </div>
