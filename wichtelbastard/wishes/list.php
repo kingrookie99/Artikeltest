@@ -4,7 +4,7 @@
     include($documentRoot.'tpl/header.php');
     echo '<a href="'.$root.'attendants/list.php">Zurück zu den Teilnehmern</a>';
   
-    echo "<table border=1 >";
+    echo "<table border=1 class='wishes'>";
     echo "<tr>";
     echo "<td><b>Id</b></td>";
     echo "<td><b>Titel</b></td>";

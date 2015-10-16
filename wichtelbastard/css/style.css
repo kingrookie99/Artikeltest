@@ -1,3 +1,7 @@
+body {
+    overflow-x:hidden;
+}
+
 .back,a {
     color:darkorange;
 }
@@ -42,14 +46,14 @@ td {
     height:50px;
     position:absolute;
     left:-50px;
-    background:red;
+    background:darkorange;
     top:0px;
+    padding-top:13px;
+    text-align: center;
 }
 .mobileOpener,.mobileCloser {
     display:none;
 }
-
-
 
 .header{
   width:100%;
@@ -84,6 +88,83 @@ td {
     border:none;
 }
 
+#content {
+    border-bottom:2px solid #000;
+    padding:50px 0px;
+}
+#footer {
+    background:#333;
+    padding:20px 0px;
+    color:#fff;
+}
+.showContent {
+    margin-top:30px;
+}
+div.button {
+    padding:0px;
+}
+div.button button {
+    width:100%;
+    padding:30px 0px;
+    text-align: center;
+    background-color:#FF9841;
+    border:none;
+    border-right:1px solid #fff;
+    color:#fff;
+    text-transform: uppercase;
+    font-size:1.5em;
+}
+div.button button:hover {
+    background-color:#fF8841;
+}
+div.button:last-of-type button {
+    border-right:none;
+}
+
+.ownWishes {
+    background:#FFE256;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size:1.3em;
+    padding:0px;
+    margin-top:30px;
+}
+.ownWishWrap {
+    padding:30px 50px;
+}
+.ownWishes h3 {
+    font-size:1.5em;
+    text-decoration: underline;
+}
+.ownWishes input {
+    background:transparent;
+    border:none;
+    border-bottom:1px solid #000;
+    width:100%;
+}
+.ownWishWrap .panel {
+    border:none;
+}
+.ownWishWrap .panel-group .panel+.panel {
+    margin-top: 0px;
+    border:none;
+}
+.ownWishWrap .panel-default>.panel-heading {
+    background:#FFE256;
+    border:none;
+    border-bottom:1px solid #000;
+}
+.ownWishWrap .panel-body b {
+    margin-top:10px;
+    display:inline-block;
+}
+
+
+@media(max-width:1080px) {
+    
+}
+@media(max-width:991px) {
+    
+}
 @media(max-width:767px) {
     h1 {
         font-size:1.5em;
@@ -92,6 +173,67 @@ td {
         right:-250px;
     }
     .mobileOpener {
+        display:block;
+    }
+    div.button button {
+        border-right:none;
+        border-bottom:1px solid #fff;
+    }
+    .ownWishWrap {
+        padding:15px 25px;
+    }
+}
+@media(max-width:550px) {
+    
+}
+
+
+
+
+
+/* ################ Tabellen responsive ################ */
+
+@media(max-width:1080px) {
+    .attendants td:nth-child(4),.attendants td:nth-child(5) {
+        display:none;
+    }
+    .attendants td {
+        display:block;
+    }
+}
+@media(max-width:991px) {
+    .attendants td:nth-child(4),.attendants td:nth-child(5),.attendants td:nth-last-child(4) {
+        display:none;
+    }
+    .attendants td {
+        display:block;
+    }
+}
+@media(max-width:767px) {
+    .attendants td:nth-child(4),.attendants td:nth-child(5),.attendants td:nth-child(6),.attendants td:nth-last-child(4),.attendants td:nth-last-child(5) {
+        display:none;
+    }
+    .attendants td {
+        display:block;
+    }
+    .wishes td:nth-child(4) {
+        display:none;
+    }
+    .wishes td {
+        display:block;
+    }
+}
+@media(max-width:550px) {
+    .attendants td {
+        display:none;
+    }
+    .attendants td:nth-child(1),.attendants td:nth-child(3),.attendants td:nth-last-child(1),.attendants td:nth-last-child(2) {
+        display:block;
+    }
+    .wishes td:nth-child(4),.wishes td:nth-child(3) {
+        display:none;
+    }
+    .wishes td {
         display:block;
     }
 }

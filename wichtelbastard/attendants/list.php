@@ -4,7 +4,7 @@
     include($documentRoot.'tpl/header.php');
     echo '<a href="'.$root.'">Zurück zum Start</a> || <a href="'.$root.'/wishes/list.php">Wunsch-Liste</a>';
  
-    echo "<table border=1 >";
+    echo "<table border=1 class='attendants'>";
     echo "<tr>";
     echo "<td><b>Id</b></td>";
     echo "<td><b>Firstname</b></td>";

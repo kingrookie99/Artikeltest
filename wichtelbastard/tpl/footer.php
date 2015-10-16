@@ -1,7 +1,10 @@
+      </div>
   </div>
 
   <div id="footer">
-     &copy; Wichtelbastard
+    <div class="container">
+         &copy; Wichtelbastard 2015
+    </div>
   </div>
     </body>
 </html>

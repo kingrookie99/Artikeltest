@@ -59,7 +59,7 @@ else
 
         }
 
-        echo '<div class="loginWindow"><div class="mobileOpener"></div><div class="mobileCloser"></div>';
+        echo '<div class="loginWindow"><div class="mobileOpener"><img src="'.$root.'img/menumob.png" /></div><div class="mobileCloser">X</div>';
         include ($documentRoot."tpl/session_data.php");
         echo '</div>'; 
     }
