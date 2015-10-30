@@ -24,7 +24,7 @@ else
             $email = $_POST["email"];
             $passwort = $_POST["password"];
 
-            $abfrage = "SELECT email, password, admin, surname, firstname, id FROM attendants WHERE email LIKE '$email' LIMIT 1";
+            $abfrage = "SELECT email, password, admin, surname, firstname, id, conterId FROM attendants WHERE email LIKE '$email' LIMIT 1";
             $ergebnis = mysql_query($abfrage);
             $row = mysql_fetch_object($ergebnis);
 
@@ -36,6 +36,7 @@ else
                 $_SESSION["surname"] = $row->surname;
                 $_SESSION["admin"] = $row->admin;
                 $_SESSION["id"] = $row->id;
+                $_SESSION["conterId"] = $row->conterId;
           
            
                 //include($documentRoot."tpl/session_data.php");

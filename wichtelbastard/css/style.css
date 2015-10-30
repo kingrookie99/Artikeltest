@@ -89,13 +89,21 @@ td {
 }
 
 #content {
-    border-bottom:2px solid #000;
     padding:50px 0px;
 }
 #footer {
     background:#333;
     padding:20px 0px;
     color:#fff;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+}
+@media(max-height:835px) {
+    #footer {
+        position:relative;
+        
+    }
 }
 .showContent {
     margin-top:30px;
@@ -119,6 +127,35 @@ div.button button:hover {
 }
 div.button:last-of-type button {
     border-right:none;
+}
+.saved,.cleared,.checked {
+    display:none;
+    background:green;
+    width:100%;
+    text-align:center;
+    color:#fff;
+    padding:5px 0px;
+    clear:both;
+}
+.panel-body form {
+    margin-bottom:0px;
+}
+.panel-body form:last-of-type {
+    margin-bottom:10px;
+}
+.checkWish {
+    margin-top:40px;
+}
+.checkWish input,.checkWish p {
+    float:left;
+}
+.checkWish p {
+    margin-left:10px;
+}
+.checkSubmit {
+    display:block;
+    width:100px;
+    margin:0 auto;
 }
 
 .ownWishes {
@@ -159,8 +196,10 @@ div.button:last-of-type button {
 }
 
 
-@media(max-width:1080px) {
-    
+@media(max-width:1199px) {
+    .checkWish p {
+        width:90%;
+    }
 }
 @media(max-width:991px) {
     

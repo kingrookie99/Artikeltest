@@ -4,6 +4,101 @@ $(document).ready(function(){
     $(window).resize(function(){
         accountMenu();
     });
+    
+        //callback handler for form submit
+    $("#ajaxform").submit(function(e)
+    {
+       // var title = $('input[name="title"]').val();
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            data : postData,
+            success:function(data, textStatus, jqXHR) 
+            {
+                $('.saved').slideDown();
+                setTimeout(function(){
+                    $('.saved').slideUp();
+                    location.reload();
+                },2500);
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+                //if fails      
+            }
+        });
+        e.preventDefault(); //STOP default action
+        e.unbind(); //unbind. to stop multiple form submit.
+    });
+    
+    $("#ajaxform2").submit(function(e)
+    {
+       // var title = $('input[name="title"]').val();
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            data : postData,
+            success:function(data, textStatus, jqXHR) 
+            {
+                $('.cleared').slideDown();
+                setTimeout(function(){
+                    $('.cleared').slideUp();
+                    location.reload();
+                },2500);
+                
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+                //if fails      
+            }
+        });
+        e.preventDefault(); //STOP default action
+        e.unbind(); //unbind. to stop multiple form submit.
+    });
+    
+    
+    if($('.noWishVal').val() == 1) {
+        $('.checkWish').attr('checked','checked');
+    }
+    else if($('.noWishVal').text() == 0) {
+        $('.checkWish').removeAttr('checked');
+    }
+    $("#check").submit(function(e)
+    {
+       // var title = $('input[name="title"]').val();
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        //alert(formURL);
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            data : postData,
+            success:function(data, textStatus, jqXHR) 
+            {
+                $('.checked').slideDown();
+                setTimeout(function(){
+                    $('.checked').slideUp();
+                    location.reload();
+                    
+                },2500);
+                
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+                //if fails      
+            }
+        });
+        e.preventDefault(); //STOP default action
+        e.unbind(); //unbind. to stop multiple form submit.
+    });
+
+    //$("#ajaxform").submit(); //Submit  the FORM
    
 });
 
