@@ -1,15 +1,15 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
-    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
+    echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
         if (isset($_POST['submitted'])) {
             foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }
-            $sql = "UPDATE `wishes` SET  `title` =  '{$_POST['title']}' ,  `shortDescription` =  '{$_POST['shortDescription']}'  WHERE `id` = '$id' ";
+            $sql = "UPDATE `wishes` SET  `title` =  '{$_POST['title']}' ,  `shortDescription` =  '{$_POST['shortDescription']}',  `store` =  '{$_POST['store']}'  WHERE `id` = '$id' ";
             mysql_query($sql) or die(mysql_error());
             echo (mysql_affected_rows()) ? "Edited row.<br />" : "Nothing changed. <br />";
-            echo "<a href='list.php'>Back To Listing</a>";
+            
         }
         $row = mysql_fetch_array ( mysql_query("SELECT * FROM `wishes` WHERE `id` = '$id' "));
         

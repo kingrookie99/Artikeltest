@@ -5,6 +5,13 @@ body {
 .back,a {
     color:darkorange;
 }
+.back {
+    display:block;
+    margin-bottom:20px;
+}
+form {
+    margin-top:20px;
+}
 table {
     border:none;
     border-collapse: collapse;
@@ -89,7 +96,7 @@ td {
 }
 
 #content {
-    padding:50px 0px;
+    padding:50px 0px 200px;
 }
 #footer {
     background:#333;
@@ -128,7 +135,7 @@ div.button button:hover {
 div.button:last-of-type button {
     border-right:none;
 }
-.saved,.cleared,.checked {
+.saved,.cleared,.checked,.generated {
     display:none;
     background:green;
     width:100%;

@@ -22,15 +22,15 @@
     while($row = mysql_fetch_array($result)){
         foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }
         echo "<tr>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['id'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['firstname'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['surname'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['pic'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['password'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['email'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['conterId'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['nonConterId'])) . "</td>";
-        echo "<td valign='top'>" . nl2br( utf8_encode($row['admin'])) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['id']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['firstname']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['surname']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['pic']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['password']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['email']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['conterId']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['nonConterId']) . "</td>";
+        echo "<td valign='top'>" . nl2br( $row['admin']) . "</td>";
         echo "<td valign='top'><a href=edit.php?id={$row['id']}>Edit</a></td><td><a href=delete.php?id={$row['id']}>Delete</a></td> ";
         echo "</tr>";
     }
@@ -38,6 +38,12 @@
     echo "<a href=new.php>New Row</a>";
 
 ?>
+    <form action='<?= $root.'lib/shuffle.php' ?>' method='POST' name="ajaxform" id="ajaxRandom">
+        <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
+        <input type="submit" class="generateIt" value="Neue Zuordnung generieren" />
+        <div class="generated">gespeichert - Seite wird neu geladen</div>
+        <input type='hidden' value='1' name='generated' />
+    </form>
 
 <?php
     include($documentRoot.'tpl/footer.php');

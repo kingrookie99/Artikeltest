@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
     include('../tpl/header.php');
+    echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_POST['submitted'])) {
         foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }
         $sql = "INSERT INTO `attendants` ( `firstname` ,  `surname` ,  `pic` ,  `password` ,  `email` ,  `conterId` ,  `nonConterId`  ) VALUES(  '{$_POST['firstname']}' ,  '{$_POST['surname']}' ,  '{$_POST['pic']}' ,  '{$_POST['password']}' ,  '{$_POST['email']}' ,  '{$_POST['conterId']}' ,  '{$_POST['nonConterId']}'  ) ";

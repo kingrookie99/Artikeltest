@@ -9,8 +9,12 @@
             <br><br>
             Dein Profil:<br>
             <br>
-            <b>Name:</b> <? echo utf8_encode($_SESSION["firstname"])." ".utf8_encode($_SESSION["surname"]) ?><br>
-            <b>Mail:</b> <? echo utf8_encode($_SESSION["email"]) ?><br>
+            <? $pic = $_SESSION["pic"]; ?>
+            <div class="imageWrap">
+                <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+            </div>
+            <b>Name:</b> <? echo $_SESSION["firstname"]." ".$_SESSION["surname"] ?><br>
+            <b>Mail:</b> <? echo $_SESSION["email"] ?><br>
             <div class="checkWish">
                 <form action='<?= $root.'wishes/check.php' ?>' method='POST' name="check" id="check">
                     <div class="option">

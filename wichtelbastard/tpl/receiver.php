@@ -6,23 +6,27 @@
        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding:0px;">
         <?php echo '<a href="'.$root.'index.php">Zurück zur Übersicht</a>'; ?>
            <?php
-            $attId = $_SESSION["id"];
-            $abfrage = "SELECT conterId, firstname, surname, email FROM attendants WHERE id LIKE '$attId' LIMIT 1";
+            $attId = $_SESSION["conterId"];
+            $abfrage = "SELECT conterId, firstname, surname, email, id, pic FROM attendants WHERE id LIKE '$attId' LIMIT 1";
             $ergebnis = mysql_query($abfrage);
             $row = mysql_fetch_object($ergebnis);
             $conterMail = $row->email;
             $conterSurname = $row->surname;
             $conterFirstname = $row->firstname;
             $conterId = $row->conterId;
-     
+            $id = $row->id;
+            $pic = $row->pic;
             
              ?>
         
             <br><br>
             Dein Opfer:<br>
             <br>
-            <b>Name:</b> <? echo utf8_encode($conterFirstname)." ".utf8_encode($conterSurname) ?><br>
-            <b>Mail:</b> <? echo utf8_encode($conterMail) ?><br>
+            <div class="imageWrap">
+                <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+            </div>
+            <b>Name:</b> <? echo $conterFirstname." ".$conterSurname ?><br>
+            <b>Mail:</b> <? echo $conterMail ?><br>
         </div>
             <?php
             
@@ -41,7 +45,7 @@
                     <div class="panel-group" id="accordion">
             <?php
                                    
-                    $result = mysql_query("SELECT * FROM `wishes` WHERE attendant = ".$conterId) or trigger_error(mysql_error());
+                    $result = mysql_query("SELECT * FROM `wishes` WHERE attendant = ".$id) or trigger_error(mysql_error());
                     $ctWishes = mysql_num_rows($result) ;               
                     $ctMaxWishes = 3;
                     $i = 1;

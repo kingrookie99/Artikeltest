@@ -1,7 +1,7 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
-    echo '<a class="back" href="list.php">Zurück zur Liste</a>';
+    echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
         if (isset($_POST['submitted'])) {
@@ -9,7 +9,6 @@
             $sql = "UPDATE `attendants` SET  `firstname` =  '{$_POST['firstname']}' ,  `surname` =  '{$_POST['surname']}' ,  `pic` =  '{$_POST['pic']}' ,  `password` =  '{$_POST['password']}' ,  `email` =  '{$_POST['email']}' ,  `conterId` =  '{$_POST['conterId']}' ,  `nonConterId` =  '{$_POST['nonConterId']}'   WHERE `id` = '$id' ";
             mysql_query($sql) or die(mysql_error());
             echo (mysql_affected_rows()) ? "Edited row.<br />" : "Nothing changed. <br />";
-            echo "<a href='list.php'>Back To Listing</a>";
         }
         $row = mysql_fetch_array ( mysql_query("SELECT * FROM `attendants` WHERE `id` = '$id' "));
         

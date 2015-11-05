@@ -22,10 +22,10 @@
             ?>
 
             <div class="col-md-6 col-sm-6 col-xs-12 button">
-                <button href="<?=$root?>tpl/self.php">Mein Account</button>
+                <a href="<?=$root?>tpl/self.php"><button>Mein Account</button></a>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 button">
-                <button href="<?=$root?>tpl/receiver.php">Mein Empfänger</button>
+                <a href="<?=$root?>tpl/receiver.php"><button>Mein Empfänger</button></a>
             </div>
 
             <?

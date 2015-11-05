@@ -6,11 +6,11 @@
    <br />
     <div class="name">
        <b>Name:</b><br />
-       <? echo utf8_encode($_SESSION["firstname"])." ".utf8_encode($_SESSION["surname"]) ?>
+       <? echo $_SESSION["firstname"]." ".$_SESSION["surname"] ?>
     </div>
     <div class="email">
        <b>Mail:</b><br />
-       <? echo utf8_encode($_SESSION["email"]) ?>
+       <? echo $_SESSION["email"] ?>
     </div>
     <div class="status">
        <b>Status:</b><br />
