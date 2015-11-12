@@ -1,9 +1,10 @@
 body {
     overflow-x:hidden;
+    background:#000 url(../img/bg.jpg) 0px 0px repeat-x;
 }
 
 .back,a {
-    color:darkorange;
+    color:#3fb7ef;
 }
 .back {
     display:block;
@@ -23,24 +24,37 @@ td {
 }
 
 .bastard {
-    max-width:250px;
     width:100%;
-    margin:0 auto;
+    margin:0px auto;
+    padding:0px;
+    max-width:700px;
+    position:relative;
 }
+.center-wrapper,.flow-wrapper {
+    width:100% !important;
+    height:250px !important;
+}
+#Stage {
+    transform:scale(1) !important;
+}
+
 .bastard img {
     width:100%;
 }
 
 .loginWindow {
     position:absolute;
-    background-color:darkorange;
-    padding:15px 30px;
+    background-color:#151a4e;
+    padding:5px 30px;
     right:0px;
     top:0px;
     width:250px;
+    color:#fff;
+    border-left:1px solid #fff;
 }
 .loginWindow a {
     color:#fff;
+    text-decoration: underline;
 }
 .loginWindow .welcomeText {
     display:none;
@@ -53,10 +67,11 @@ td {
     height:50px;
     position:absolute;
     left:-50px;
-    background:darkorange;
+    background:#fff;
     top:0px;
     padding-top:13px;
     text-align: center;
+    color:#151a4e;
 }
 .mobileOpener,.mobileCloser {
     display:none;
@@ -65,10 +80,13 @@ td {
 .header{
   width:100%;
   height:auto;
-  padding:20px 0px 50px;
-  background-color:bisque;
+  padding:0px 0px 0px;
+  background-color:rgba(21,26,78,0.5);
   margin-bottom:10px;
-  border-bottom:10px solid darkorange;
+    color:#fff;
+}
+.header:hover {
+    background-color:rgba(21,26,78,1);
 }
 .loginForm {
     margin:0 auto;
@@ -90,7 +108,7 @@ td {
 .loginForm input[type="submit"] {
     width:50%;
     margin:20px auto 0px;
-    background:darkorange;
+    background:#3fb7ef;
     color:#fff;
     border:none;
 }
@@ -114,26 +132,37 @@ td {
 }
 .showContent {
     margin-top:30px;
+    background:orange;
 }
 div.button {
-    padding:0px;
+    padding:0px 0px 0px;
 }
 div.button button {
     width:100%;
-    padding:30px 0px;
+    padding:15px 0px;
     text-align: center;
-    background-color:#FF9841;
+    background-color:#3fb7ef;
     border:none;
-    border-right:1px solid #fff;
-    color:#fff;
+    border-right:1px solid #040c51;
+    color:#000;
+    height:90px;
     text-transform: uppercase;
-    font-size:1.5em;
+    font-size:1.45em;
+}
+div.button button.active {
+    padding:15px 0px 15px;
+    border-bottom:5px solid #fff;
+    background:#2c99cc;
+    color:#fff;
 }
 div.button button:hover {
-    background-color:#fF8841;
+    background-color:#3c99cc;
 }
 div.button:last-of-type button {
     border-right:none;
+}
+.buttonMenuWrap {
+    margin-bottom:20px;
 }
 .saved,.cleared,.checked,.generated {
     display:none;
@@ -166,7 +195,7 @@ div.button:last-of-type button {
 }
 
 .ownWishes {
-    background:#FFE256;
+    background:#00d4ff;
     font-family: 'Gloria Hallelujah', cursive;
     font-size:1.3em;
     padding:0px;
@@ -193,7 +222,7 @@ div.button:last-of-type button {
     border:none;
 }
 .ownWishWrap .panel-default>.panel-heading {
-    background:#FFE256;
+    background:#00d4ff;
     border:none;
     border-bottom:1px solid #000;
 }
@@ -202,10 +231,85 @@ div.button:last-of-type button {
     display:inline-block;
 }
 
+.receiverWishes {
+    background-color:#0dd8bd;
+    font-size:1.3em;
+    padding:0px;
+    margin-top:30px;
+}
+.receiverWishWrap {
+    padding:30px 50px;
+}
+.receiverWishes h3 {
+    font-size:1.5em;
+    text-decoration:underline;
+}
+.receiverWish .rWpanel-body div {
+    border-bottom:1px solid #000;
+    width:100%;
+    margin-top:10px;
+}
+.receiverWish {
+    margin-top:20px;
+}
+.receiverWish .rwPanel-body b {
+    display:block;
+    text-transform: uppercase;
+    font-size:0.7em;
+}
+.receiverWishWrap .panel {
+    border:none;
+}
+.receiverWishWrap .panel-group .panel+.panel {
+    margin-top: 0px;
+    border:none;
+}
+.receiverWishWrap .panel-default>.panel-heading {
+    background:#0dd8bd;
+    border:none;
+    border-bottom:1px solid #000;
+}
+.receiverWishWrap .panel-default>.panel-heading img.icon {
+    float:right;
+}
+.panel-default .panel-heading a.linkIn {
+	background:transparent url(../img/minus.png) right 0px no-repeat;
+}
+.panel-default .panel-heading a {
+	background:transparent url(../img/plus.png) right 0px no-repeat;
+    width:100%;
+	display:block;
+}
+table.attendants,table.wishes,form.adminForm {
+    background:#fff;
+    padding:30px 15px;
+    width:100%;
+}
+.introText {
+    padding-top:20px;
+    padding-bottom:20px;
+    background:#fff;
+}
+
+.hiddenPath {
+    display: none;
+}
+canvas {
+    position:absolute;
+    top:0px;
+    z-index:-1;
+}
 
 @media(max-width:1199px) {
     .checkWish p {
         width:90%;
+    }
+    div.button button {
+        height:90px;
+        padding:15px 0px 15px;
+    }
+    div.button button.active {
+        padding:15px 0px 15px;
     }
 }
 @media(max-width:991px) {
@@ -221,16 +325,18 @@ div.button:last-of-type button {
     .mobileOpener {
         display:block;
     }
-    div.button button {
-        border-right:none;
-        border-bottom:1px solid #fff;
-    }
+    
     .ownWishWrap {
         padding:15px 25px;
     }
 }
 @media(max-width:550px) {
     
+}
+@media(max-width:480px) {
+    div.button button {
+        font-size:1.1em;
+    }
 }
 
 

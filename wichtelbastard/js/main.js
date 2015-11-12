@@ -5,6 +5,31 @@ $(document).ready(function(){
         accountMenu();
     });
     
+	$('.panel-group .in').siblings('.panel-heading').children('h4').children('a').addClass('linkIn');
+	$('.receiverWishWrap .panel-group a').click(function(){
+		$('.receiverWishWrap .panel-group a').removeClass('linkIn');
+		setTimeout(function(){
+			$('.receiverWishWrap .panel-group .in').siblings('.panel-heading').children('h4').children('a').addClass('linkIn');
+		}, 500);
+	});
+    $('.ownWishWrap .panel-group a').click(function(){
+		$('.ownWishWrap .panel-group a').removeClass('linkIn');
+		setTimeout(function(){
+			$('.ownWishWrap .panel-group .in').siblings('.panel-heading').children('h4').children('a').addClass('linkIn');
+		}, 500);
+	});
+    
+    var path = $('.hiddenPath').text();
+    $('.button').each(function(){
+        $(this).find('button').removeClass('active');
+        $(this).removeClass('active');
+       var buttonText = $(this).find('button').text(); 
+        if (buttonText == path) {
+            $(this).find('button').addClass('active');
+            $(this).addClass('active');
+        }
+    });
+    
         //callback handler for form submit
     $("#ajaxform").submit(function(e)
     {

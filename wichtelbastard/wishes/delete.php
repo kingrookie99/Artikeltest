@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
-    include('../tpl/header.php');
+    include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
     if($_GET['id'] && $_SESSION["admin"] == 1) {
         $id = (int) $_GET['id'];
         mysql_query("DELETE FROM `wishes` WHERE `id` = '$id' ") ;
@@ -14,7 +15,7 @@
     
 
 ?>
-
+<div class="hiddenPath">Admin</div>
 <a href='list.php'>Back To Listing</a>
 
 <?

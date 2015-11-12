@@ -1,14 +1,12 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
-    
+    include($documentRoot.'tpl/tab_menu.php');
 ?>
     <div class="showContent">
-        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding:0px;">
-           <?php echo '<a href="'.$root.'index.php">Zurück zur Übersicht</a>'; ?>
-            <br><br>
-            Dein Profil:<br>
-            <br>
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 introText">
+            <div class="hiddenPath">Mein Account</div>
+            
             <? $pic = $_SESSION["pic"]; ?>
             <div class="imageWrap">
                 <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
@@ -157,7 +155,9 @@ else {
                 </div>
             </div>
         </div>
+        
     </div>
+    
 <?php
     include($documentRoot.'tpl/footer.php');
 ?>

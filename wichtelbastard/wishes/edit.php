@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
     echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
@@ -14,8 +15,8 @@
         $row = mysql_fetch_array ( mysql_query("SELECT * FROM `wishes` WHERE `id` = '$id' "));
         
 ?>
-
-        <form action='' method='POST'>
+        <div class="hiddenPath">Admin</div>
+        <form action='' method='POST' class="adminForm">
             <p><b>Titel:</b><br /><input type='text' name='title' value='<?= stripslashes($row['title']) ?>' />
             <p><b>Kurzbeschreibung:</b><br /><input type='text' name='shortDescription' value='<?= stripslashes($row['shortDescription']) ?>' />
             <p><b>Wo zu kaufen? (Link o. Laden):</b><br /><input type='text' name='store' value='<?= stripslashes($row['store']) ?>' />

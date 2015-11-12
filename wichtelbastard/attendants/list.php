@@ -2,7 +2,8 @@
 <?php
    include('../conf.php');
     include($documentRoot.'tpl/header.php');
-    echo '<a href="'.$root.'">Zurück zum Start</a> || <a href="'.$root.'/wishes/list.php">Wunsch-Liste</a>';
+    include($documentRoot.'tpl/tab_menu.php');
+    echo '<a href="'.$root.'wishes/list.php">Wunsch-Liste</a>';
  
     echo "<table border=1 class='attendants'>";
     echo "<tr>";
@@ -38,7 +39,8 @@
     echo "<a href=new.php>New Row</a>";
 
 ?>
-    <form action='<?= $root.'lib/shuffle.php' ?>' method='POST' name="ajaxform" id="ajaxRandom">
+    <div class="hiddenPath">Admin</div>
+    <form action='<?= $root.'lib/shuffle.php' ?>' method='POST' name="ajaxform" id="ajaxRandom" class="adminForm">
         <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
         <input type="submit" class="generateIt" value="Neue Zuordnung generieren" />
         <div class="generated">gespeichert - Seite wird neu geladen</div>

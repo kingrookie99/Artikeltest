@@ -4,9 +4,11 @@ if(isset($_GET['logout']))
 {
     session_unset ( );
     ?>
-    Du bist raus aus dem System.<br />
-    Gehe zurück zu Start und ziehe keine 4000€ ein.<br />
-    <a href="<?=$root?>/index.php">Start</a><br />
+    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        Du bist raus aus dem System.<br />
+        Gehe zurück zu Start und ziehe keine 4000€ ein.<br />
+        <a href="<?=$root?>/index.php">Start</a><br />
+    </div>
     <?php
 }
 else
@@ -85,6 +87,16 @@ else
                 <input type="submit" value="Abschicken">
             </div>
           </form>    
+          <style>
+                .header {
+                    background:transparent;
+                    border:none;
+                    color:#000;
+                }
+              .header:hover {
+                    background:transparent;
+                }
+            </style>
     <?php  
     }
     

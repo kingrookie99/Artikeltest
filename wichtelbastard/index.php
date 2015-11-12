@@ -2,35 +2,9 @@
     include('conf.php');
     include($documentRoot.'tpl/header.php');
 
-    if(isset($_SESSION['loggedIn'])) {
-        if(isset($_SESSION['admin'])&& $_SESSION['admin']==1)
-        {?>
-            
-            <div class="col-md-4 col-sm-4 col-xs-12 button">
-                <a href="<?=$root?>attendants/list.php"><button>Admin</button></a>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12 button">
-                <a href="<?=$root?>tpl/self.php"><button>Mein Account</button></a>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12 button">
-                <a href="<?=$root?>tpl/receiver.php"><button>Mein Empfänger</button></a>
-            </div>
+    include($documentRoot.'tpl/tab_menu.php');
 
-        <?php
-        }
-        else{
-            ?>
-
-            <div class="col-md-6 col-sm-6 col-xs-12 button">
-                <a href="<?=$root?>tpl/self.php"><button>Mein Account</button></a>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 button">
-                <a href="<?=$root?>tpl/receiver.php"><button>Mein Empfänger</button></a>
-            </div>
-
-            <?
-        }
-    }
+    header('Location: '.$root.'tpl/self.php');
 
     include($documentRoot.'tpl/footer.php');
 ?>

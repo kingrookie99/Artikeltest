@@ -1,48 +1,52 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
 ?>
     <div class="showContent">
-       <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding:0px;">
-        <?php echo '<a href="'.$root.'index.php">Zurück zur Übersicht</a>'; ?>
+       <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 introText">
+          <div class="hiddenPath">Mein Empfänger</div>
            <?php
             $attId = $_SESSION["conterId"];
-            $abfrage = "SELECT conterId, firstname, surname, email, id, pic FROM attendants WHERE id LIKE '$attId' LIMIT 1";
-            $ergebnis = mysql_query($abfrage);
-            $row = mysql_fetch_object($ergebnis);
-            $conterMail = $row->email;
-            $conterSurname = $row->surname;
-            $conterFirstname = $row->firstname;
-            $conterId = $row->conterId;
-            $id = $row->id;
-            $pic = $row->pic;
+            if($attId != 0) {
+                $abfrage = "SELECT conterId, firstname, surname, email, id, pic, noWishes FROM attendants WHERE id LIKE '$attId' LIMIT 1";
+                $ergebnis = mysql_query($abfrage);
+                $row = mysql_fetch_object($ergebnis);
+                $conterId = $row->conterId;
+                $conterMail = $row->email;
+                $conterSurname = $row->surname;
+                $conterFirstname = $row->firstname;
+                $id = $row->id;
+                $pic = $row->pic;
+                $noWishes = $row->noWishes;
             
              ?>
         
-            <br><br>
-            Dein Opfer:<br>
-            <br>
+            
             <div class="imageWrap">
                 <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
             </div>
             <b>Name:</b> <? echo $conterFirstname." ".$conterSurname ?><br>
             <b>Mail:</b> <? echo $conterMail ?><br>
         </div>
-            <?php
-            
-     
-               // echo $row->noWishes;
-            if($conterId != 0) {
-             ?>
                
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ownWishes">
-                    <div class="ownWishWrap">
-                    <h3>Mein Wunschzettel</h3>
-                    <p>
-                        Du kannst 3 Wünsche äußern, von denen dein Wichtel einen auswählen kann.<br>
-                        Deine Wünsche sollten max. 15 € kosten. 
-                    </p>
-                    <div class="panel-group" id="accordion">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 receiverWishes">
+                    <div class="receiverWishWrap">
+                        <h3>Wunschzettel von  <? echo $conterFirstname." ".$conterSurname ?></h3>
+                        <?php
+                        if($noWishes == 1) {
+                        ?>
+                            <p>
+                                <? echo $conterFirstname." ".$conterSurname ?> hat angegeben, dass er keine besonderen Wünsche hat. Du darfst ihr/ihm frei nach deinem Willen etwas schenken.
+                            </p>
+                        <?php
+                         }       
+                        else {
+                        ?>
+                        <p>
+                            Hier kannst du die 3 Wünsche deines Empfängers sehen.
+                        </p>
+                        <div class="panel-group" id="accordion">
             <?php
                                    
                     $result = mysql_query("SELECT * FROM `wishes` WHERE attendant = ".$id) or trigger_error(mysql_error());
@@ -52,28 +56,25 @@
                         while($row = mysql_fetch_array($result)){
                             ?>
                             
-                             <div class="panel panel-default">
+                             <div class="panel panel-default receiverWish">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $i ?>"><?= $i ?>. Wunsch (ausgefüllt)</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $i ?>"><?= $i ?>. Wunsch</a>
                                         </h4>
                                     </div>
                                     <div id="collapse<?= $i ?>" class="panel-collapse collapse">
-                                        <div class="panel-body">
-
-                                            <form action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" id="ajaxform">
-                                               <b>Titel:</b><br>
-                                                <div class="wish<?= $i ?>Title"><?=$row['title']?></div>
-                                                <b>Kurzbeschreibung:</b><br>
-                                                <div class="wish<?= $i ?>Desc"><?=$row['shortDescription']?></div>
-                                                <b>Wo zu kaufen? (Laden o. Link):</b><br>
-                                                <div class="wish<?= $i ?>Store"><?=$row['store']?></div>
-                                                <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
-                                            </form>
+                                        <div class="panel-body rWpanel-body">
+                                            <div class="wish<?= $i ?>Title"><?=$row['title']?></div>
+                                            <b>Titel</b>
+                                            <div class="wish<?= $i ?>Desc"><?=$row['shortDescription']?></div>
+                                            <b>Kurzbeschreibung</b>
+                                            <div class="wish<?= $i ?>Store"><?=$row['store']?></div>
+                                            <b>Wo zu kaufen? (Laden o. Link)</b>
+                                            <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
+                                            
                                         </div>
                                     </div>
                                 </div>
-                        
                             
                             <?
                         $i++;    
@@ -81,38 +82,48 @@
                         for($i;$i<=$ctMaxWishes;$i++)
                         {
                             ?>
-                           <div class="panel panel-default neu">
+                               <div class="panel panel-default receiverWish">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $i ?>"><?= $i ?>. Wunsch</a>
+                                            <?= $i ?>. Wunsch (bisher nicht ausgefüllt)
                                         </h4>
                                     </div>
+                                    <!--
                                     <div id="collapse<?= $i ?>" class="panel-collapse collapse">
-                                        <div class="panel-body">
-
-                                            <form action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" id="ajaxform">
-                                               <b>Titel:</b><br>
-                                                <div class="wish<?= $i ?>Title"><?=$row['title']?></div>
-                                                <b>Kurzbeschreibung:</b><br>
-                                                <div class="wish<?= $i ?>Desc"><?=$row['shortDescription']?></div>
-                                                <b>Wo zu kaufen? (Laden o. Link):</b><br>
-                                                <div class="wish<?= $i ?>Store"><?=$row['store']?></div>
-                                                <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
-                                            </form>
+                                        <div class="panel-body rWpanel-body">
+                                            <div class="wish<?= $i ?>Title"><?=$row['title']?></div>
+                                            <b>Titel</b>
+                                            <div class="wish<?= $i ?>Desc"><?=$row['shortDescription']?></div>
+                                            <b>Kurzbeschreibung</b>
+                                            <div class="wish<?= $i ?>Store"><?=$row['store']?></div>
+                                            <b>Wo zu kaufen? (Laden o. Link)</b>
+                                            <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
+                                            
                                         </div>
                                     </div>
-                                </div>     
+                                    -->
+                                </div>    
                             <?                      
                         }
-
+                    ?>
+                    
+                        </div>
+                        <?
+                        }
+                        ?>
+                   </div>
+                </div>
+                    
+                    <?php
             }
             else {
                 ?>
+                </div>
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding:0px;">
                    <?php echo '<a href="'.$root.'index.php">Zurück zur Übersicht</a>'; ?>
                     <br><br>
-                    Die Auslosung hat noch nicht stattgefunden.<br>
-                    Du bekommst zeitnah eine Person zugelost und findest hier seine/ihre Wunschliste.
+                    Die Auslosung findet am <b>20.11.2015 um 12.00 Uhr</b> statt.<br>
+                    Du bekommst dann per Zufallsmechanismus eine Person zugelost und findest hier ihre/seine Wunschliste.
                 </div>
                 <?
             }
@@ -122,9 +133,7 @@
                     ?>
                     
                      
-                </div>
-               </div>
-            </div>
+                
         </div>
                     
 <?php

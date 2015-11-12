@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
     echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_GET['id']) ) {
         $id = (int) $_GET['id'];
@@ -13,8 +14,8 @@
         $row = mysql_fetch_array ( mysql_query("SELECT * FROM `attendants` WHERE `id` = '$id' "));
         
 ?>
-
-        <form action='' method='POST'>
+        <div class="hiddenPath">Admin</div>
+        <form action='' method='POST' class="adminForm">
             <p><b>Firstname:</b><br /><input type='text' name='firstname' value='<?= stripslashes($row['firstname']) ?>' />
             <p><b>Surname:</b><br /><input type='text' name='surname' value='<?= stripslashes($row['surname']) ?>' />
             <p><b>Pic:</b><br /><input type='text' name='pic' value='<?= stripslashes($row['pic']) ?>' />

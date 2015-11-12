@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
-    include('../tpl/header.php');
+    include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
     echo '<a class="back" href="list.php">Back to listing</a>';
     if (isset($_POST['submitted']) && isset($_POST['update']) && $_POST['update'] != 1) {
         foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }
@@ -24,8 +25,8 @@
     }
 
 ?>
-
-<form action='' method='POST'>
+<div class="hiddenPath">Admin</div>
+<form action='' method='POST' class="adminForm">
     <p><b>Titel:</b><br /><input type='text' name='title'/>
     <p><b>Kurzbeschreibung:</b><br /><input type='text' name='shortDescription'/>
     <p><b>Laden oder Link:</b><br /><input type='text' name='store'/>

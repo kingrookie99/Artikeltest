@@ -2,6 +2,7 @@
 <?php
   include('../conf.php');
     include($documentRoot.'tpl/header.php');
+    include($documentRoot.'tpl/tab_menu.php');
     echo '<a href="'.$root.'attendants/list.php">Zurück zu den Teilnehmern</a>';
   
     echo "<table border=1 class='wishes'>";
@@ -30,3 +31,4 @@
     echo "<a href=new.php>New Row</a>";
     include($documentRoot.'tpl/footer.php');
 ?>
+<div class="hiddenPath">Admin</div>

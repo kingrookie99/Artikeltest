@@ -14,7 +14,7 @@
         $row = mysql_fetch_array ( mysql_query("SELECT * FROM `attendant` WHERE `id` = '$id' "));
 
 ?>
-
+<div class="hiddenPath">Admin</div>
 <form action='' method='POST'>
     <p><b>Titel:</b><br /><input type='text' name='title'/>
     <p><b>Kurzbeschreibung:</b><br /><input type='text' name='shortDescription'/>
