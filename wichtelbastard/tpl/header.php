@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	    
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
         <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
@@ -13,14 +15,32 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     
         <!-- Latest compiled and minified JavaScript -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="http://animate.adobe.com/runtime/6.0.0/edge.6.0.0.min.js"></script>
         <!--Own Styles -->
         <link rel="stylesheet" type="text/css" href="<?=$root?>css/style.css">
         <script type="text/javascript" src="<?=$root?>js/main.js"></script>
-        <script type="text/javascript" src="<?=$root?>js/ThreeCanvas.js"></script>
-	<script type="text/javascript" src="<?=$root?>js/Snow.js"></script>
+     
+     	<script type="text/javascript" src="<?=$root?>js/jquery.snow.js"></script>
+        <script>
+        	jQuery(function() {
+				jQuery("body").snow({
+					intensity: 40,
+					sizeRange: [5, 25],
+					opacityRange: [0.4, 1],
+					driftRange: [10, 10],
+					speedRange: [55, 120]
+				});
+			});
+			
+        </script>
+     
+     <!--   
+     	<script type="text/javascript" src="<?=$root?>js/ThreeCanvas.js"></script> 
+     	<script type="text/javascript" src="<?=$root?>js/Snow.js"></script>
 	
 		<script>
 
@@ -143,6 +163,7 @@
 			}
 
 		</script>
+		-->
            <style>
             .edgeLoad-EDGE-20128410 { visibility:hidden; }
         </style>
@@ -158,14 +179,16 @@
     </script>
     </head>
 
-    <body onload="init()">
+    <!-- <body onload="init()"> -->
+    <body>
+	<div id="snow"></div>
     <div class="header">
      <div class="bastard">
           <div id="Stage" class="EDGE-20128410">
         </div>
       </div>
       <?
-        require_once($documentRoot."lib/login.php")
+        require_once($documentRoot."/lib/login.php")
       ?>
    </div>
    <div id="content">

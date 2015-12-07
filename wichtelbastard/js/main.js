@@ -31,11 +31,11 @@ $(document).ready(function(){
     });
     
         //callback handler for form submit
-    $("#ajaxform").submit(function(e)
+    $(".ajaxform").submit(function(e)
     {
        // var title = $('input[name="title"]').val();
         var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
+        var formURL = $(this).attr("data-action");
         $.ajax(
         {
             url : formURL,
@@ -55,14 +55,14 @@ $(document).ready(function(){
             }
         });
         e.preventDefault(); //STOP default action
-        e.unbind(); //unbind. to stop multiple form submit.
+        ////////e.unbind(); //unbind. to stop multiple form submit.
     });
     
-    $("#ajaxform2").submit(function(e)
+    $(".ajaxform2").submit(function(e)
     {
        // var title = $('input[name="title"]').val();
         var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
+        var formURL = $(this).attr("data-action");
         $.ajax(
         {
             url : formURL,
@@ -83,7 +83,7 @@ $(document).ready(function(){
             }
         });
         e.preventDefault(); //STOP default action
-        e.unbind(); //unbind. to stop multiple form submit.
+        ////////e.unbind(); //unbind. to stop multiple form submit.
     });
     
     
@@ -97,7 +97,7 @@ $(document).ready(function(){
     {
        // var title = $('input[name="title"]').val();
         var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
+        var formURL = $(this).attr("data-action");
         //alert(formURL);
         $.ajax(
         {
@@ -120,14 +120,14 @@ $(document).ready(function(){
             }
         });
         e.preventDefault(); //STOP default action
-        e.unbind(); //unbind. to stop multiple form submit.
+        ////////e.unbind(); //unbind. to stop multiple form submit.
     });
 
     $("#ajaxRandom").submit(function(e)
     {
        // var title = $('input[name="title"]').val();
         var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
+        var formURL = $(this).attr("data-action");
         $.ajax(
         {
             url : formURL,
@@ -148,7 +148,7 @@ $(document).ready(function(){
             }
         });
         e.preventDefault(); //STOP default action
-        e.unbind(); //unbind. to stop multiple form submit.
+        ////////e.unbind(); //unbind. to stop multiple form submit.
     });
     
     //$("#ajaxform").submit(); //Submit  the FORM
@@ -157,7 +157,7 @@ $(document).ready(function(){
 
 function accountMenu() {
     if($(window).width() < 768) {
-        
+        $('.loginWrap').fadeOut();
 //        $('.mobileOpener').show()
 //        $('.loginWindow').css('right','-250px');
         
@@ -168,25 +168,28 @@ function accountMenu() {
         $('.mobileOpener').click(function(){
             $('.mobileCloser').show();
             $('.mobileOpener').hide();
-            $('.loginWindow').animate({
-                right: "0px"
+            $('.loginWrap').fadeIn();
+            /*$('.loginWrap').animate({
+                display: "block"
               }, 100, function() {
                     
-              });
+              });*/
        });
         $('.mobileCloser').click(function(){
             $('.mobileOpener').show();
              $('.mobileCloser').hide();
-            $('.loginWindow').animate({
-                right: "-250px"
+            $('.loginWrap').fadeOut();
+            /*$('.loginWrap').animate({
+                display: "none"
               }, 100, function() {
                    
-              });
+              });*/
        });
     }
     else {
         $('.mobileCloser').removeAttr('style');
         $('.mobileOpener').removeAttr('style');
         $('.loginWindow').removeAttr('style');
+        $('.loginWrap').fadeIn();
     }
 }

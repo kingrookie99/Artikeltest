@@ -1,3 +1,6 @@
+html {
+    overflow-x:hidden;
+}
 body {
     overflow-x:hidden;
     background:#000 url(../img/bg.jpg) 0px 0px repeat-x;
@@ -19,8 +22,28 @@ table {
     margin:20px 0px;
 }
 td {
-    padding:5px;
+    padding:10px;
     border:1px solid #111;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+ 
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+.buttonstyle{
+	background:#fff;
+	display:block;
+	padding:10px;
+	text-align:center;
+	width:200px;
+	
+	cursor:pointer !important;
+}
+.buttonstyle:hover{
+	text-decoration:none !important;
+	cursor:pointer !important;
 }
 
 .bastard {
@@ -30,12 +53,16 @@ td {
     max-width:700px;
     position:relative;
 }
-.center-wrapper,.flow-wrapper {
-    width:100% !important;
-    height:250px !important;
-}
-#Stage {
-    transform:scale(1) !important;
+
+@media(min-width:700px) {
+	.center-wrapper,.flow-wrapper {
+	    width:100% !important;
+	    height:250px !important;
+	}
+	#Stage {
+	    transform:scale(1) !important;
+	    -webkit-transform:scale(1) !important;
+	}
 }
 
 .bastard img {
@@ -45,12 +72,16 @@ td {
 .loginWindow {
     position:absolute;
     background-color:#151a4e;
-    padding:5px 30px;
     right:0px;
     top:0px;
-    width:250px;
     color:#fff;
     border-left:1px solid #fff;
+    z-index:999999;
+}
+.loginWrap {
+	display:block;
+    padding:5px 30px;
+    width:250px;
 }
 .loginWindow a {
     color:#fff;
@@ -72,6 +103,7 @@ td {
     padding-top:13px;
     text-align: center;
     color:#151a4e;
+    cursor:pointer;
 }
 .mobileOpener,.mobileCloser {
     display:none;
@@ -81,12 +113,9 @@ td {
   width:100%;
   height:auto;
   padding:0px 0px 0px;
-  background-color:rgba(21,26,78,0.5);
+  background-color:rgba(21,26,78,0);
   margin-bottom:10px;
     color:#fff;
-}
-.header:hover {
-    background-color:rgba(21,26,78,1);
 }
 .loginForm {
     margin:0 auto;
@@ -144,7 +173,7 @@ div.button button {
     background-color:#3fb7ef;
     border:none;
     border-right:1px solid #040c51;
-    color:#000;
+    color:#fff;
     height:90px;
     text-transform: uppercase;
     font-size:1.45em;
@@ -152,7 +181,7 @@ div.button button {
 div.button button.active {
     padding:15px 0px 15px;
     border-bottom:5px solid #fff;
-    background:#2c99cc;
+    background:#3fb7ef;
     color:#fff;
 }
 div.button button:hover {
@@ -194,12 +223,15 @@ div.button:last-of-type button {
     margin:0 auto;
 }
 
-.ownWishes {
+.ownWishes,.noWishes {
     background:#00d4ff;
     font-family: 'Gloria Hallelujah', cursive;
     font-size:1.3em;
     padding:0px;
     margin-top:30px;
+}
+.noWishes {
+	padding:15px 15px;
 }
 .ownWishWrap {
     padding:30px 50px;
@@ -280,7 +312,7 @@ div.button:last-of-type button {
     width:100%;
 	display:block;
 }
-table.attendants,table.wishes,form.adminForm {
+table.attendants,table.wishes /*,form.adminForm*/ {
     background:#fff;
     padding:30px 15px;
     width:100%;
@@ -299,6 +331,58 @@ canvas {
     top:0px;
     z-index:-1;
 }
+.alternativeImage {
+	background:#efefef;
+	height:130px;
+	width:200px;
+}
+#snow {
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+.snowflake {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  z-index:-1;
+}
+
+@-moz-keyframes 
+spin { 100% {
+  -moz-transform: rotate(360deg);
+}
+}
+
+@-webkit-keyframes 
+spin { 100% {
+  -webkit-transform: rotate(360deg);
+}
+}
+
+@keyframes 
+spin { 100% {
+  -webkit-transform: rotate(360deg);
+  transform:rotate(360deg);
+}
+}
+
+
+.count_wishes {
+    margin:0px 0 20px 0;
+    font-size:20px;
+    text-align:center;
+    color:#3fb7ef;
+/*     border:solid red 1px; */
+}
+.count_wishes span {
+    display:block;
+    font-size:50px;
+    line-height:50px;
+    color:#fff;
+}
+
 
 @media(max-width:1199px) {
     .checkWish p {
@@ -319,14 +403,14 @@ canvas {
     h1 {
         font-size:1.5em;
     }
-    .loginWindow {
-        right:-250px;
+    .loginWrap {
+    	display:none;
     }
     .mobileOpener {
         display:block;
     }
     
-    .ownWishWrap {
+    .ownWishWrap,.receiverWishWrap {
         padding:15px 25px;
     }
 }

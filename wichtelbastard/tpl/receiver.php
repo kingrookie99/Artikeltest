@@ -1,6 +1,7 @@
 <?php
     include('../conf.php');
     include($documentRoot.'tpl/header.php');
+	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
     include($documentRoot.'tpl/tab_menu.php');
 ?>
     <div class="showContent">
@@ -24,7 +25,19 @@
         
             
             <div class="imageWrap">
-                <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+                <?php 
+            		$src = $root."img/mitarbeiter/".$pic;
+					if(@getimagesize($src)){
+            	?>
+                	<img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+                <?php 
+					}
+					else {
+						?>
+						<img src="<?= $root ?>img/mitarbeiter/dummy.jpg" />
+						<?php
+					} 
+				?>
             </div>
             <b>Name:</b> <? echo $conterFirstname." ".$conterSurname ?><br>
             <b>Mail:</b> <? echo $conterMail ?><br>
@@ -119,10 +132,9 @@
             else {
                 ?>
                 </div>
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding:0px;">
-                   <?php echo '<a href="'.$root.'index.php">Zurück zur Übersicht</a>'; ?>
-                    <br><br>
-                    Die Auslosung findet am <b>20.11.2015 um 12.00 Uhr</b> statt.<br>
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" style="padding-bottom:20px;padding-top:20px;background:#3FB7EF;color:#fff">
+              
+                    Die Auslosung findet am <b>27.11.2015 um 12.23 Uhr</b> statt.<br>
                     Du bekommst dann per Zufallsmechanismus eine Person zugelost und findest hier ihre/seine Wunschliste.
                 </div>
                 <?
@@ -137,7 +149,7 @@
         </div>
                     
 <?php
-
+	}
     include($documentRoot.'tpl/footer.php');
 ?>
 

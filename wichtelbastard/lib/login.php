@@ -84,6 +84,7 @@ else
 
                 <label>Dein Passwort:</label><br>
                 <input type="password" maxlength="50" name="password"><br>
+                <input type="hidden" name="login">
                 <input type="submit" value="Abschicken">
             </div>
           </form>    

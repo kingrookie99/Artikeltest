@@ -1,4 +1,4 @@
-<div>
+<div class="loginWrap">
    <div class="welcomeText">
        Du hast dich erfolgreich eingeloggt.<br />
        Deine Daten sind:<br />

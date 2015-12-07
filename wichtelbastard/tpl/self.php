@@ -1,7 +1,11 @@
 <?php
+
     include('../conf.php');
-    include($documentRoot.'tpl/header.php');
-    include($documentRoot.'tpl/tab_menu.php');
+	
+    include('header.php');
+	
+	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
+    include('tab_menu.php');
 ?>
     <div class="showContent">
         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 introText">
@@ -9,12 +13,24 @@
             
             <? $pic = $_SESSION["pic"]; ?>
             <div class="imageWrap">
-                <img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+            	<?php 
+            		$src = $root."img/mitarbeiter/".$pic;
+					if(@getimagesize($src)){
+            	?>
+                	<img src="<?= $root ?>img/mitarbeiter/<?= $pic ?>" />
+                <?php 
+					}
+					else {
+						?>
+						<img src="<?= $root ?>img/mitarbeiter/dummy.jpg" />
+						<?php
+					} 
+				?>
             </div>
             <b>Name:</b> <? echo $_SESSION["firstname"]." ".$_SESSION["surname"] ?><br>
             <b>Mail:</b> <? echo $_SESSION["email"] ?><br>
             <div class="checkWish">
-                <form action='<?= $root.'wishes/check.php' ?>' method='POST' name="check" id="check">
+                <form data-action='<?= $root.'wishes/check.php' ?>' method='POST' name="check" id="check">
                     <div class="option">
                         <input type="checkbox" name="checkWish" class="checkWish" value="1"> <p>Ich möchte keine Wünsche angeben - zufällig etwas geschenkt bekommen</p>
                     </div>
@@ -76,7 +92,7 @@
                                     <div id="collapse<?= $i ?>" class="panel-collapse collapse">
                                         <div class="panel-body">
 
-                                            <form action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" id="ajaxform">
+                                            <form data-action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" class="ajaxform">
                                                <b>Titel:</b><br>
                                                 <input type="text" name="title" value="<?=$row['title']?>" class="wish<?= $i ?>Title"><br>
                                                 <b>Kurzbeschreibung:</b><br>
@@ -90,7 +106,7 @@
                                                 <input type='hidden' value='<?=$row['id']?>' name='id' />
                                                 <input type='hidden' value='1' name='submitted' />
                                             </form>
-                                            <form action='<?= $root.'wishes/delete.php' ?>' method='POST' name="ajaxform2" id="ajaxform2">
+                                            <form data-action='<?= $root.'wishes/delete.php' ?>' method='POST' name="ajaxform2" class="ajaxform2">
                                                 <input type="hidden" name="attendant" value="<?= $_SESSION["id"] ?>" class="wish<?= $i ?>Attendant" />
                                                 <input type="submit" class="clearIt" value="leeren" />
                                                 <div class="cleared">geleert - Seite wird neu geladen</div>
@@ -117,7 +133,7 @@
                                     <div id="collapse<?= $i ?>" class="panel-collapse collapse">
                                         <div class="panel-body">
 
-                                            <form action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" id="ajaxform">
+                                            <form data-action='<?= $root.'wishes/new.php' ?>' method='POST' name="ajaxform" class="ajaxform">
                                                <b>Titel:</b><br>
                                                 <input type="text" name="title" value="" class="wish<?= $i ?>Title"><br>
                                                 <b>Kurzbeschreibung:</b><br>
@@ -141,7 +157,7 @@
 else {
     ?>
     <input type="hidden" class="noWishVal" value="1" />
-    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 noWishes" style="padding:0px;margin-top:10px;">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 noWishes" style="">
         Du möchtest keine Wünsche angeben. Dein Wichtel darf dir ein Geschenk seiner Wahl aussuchen.
     </div>
     <?
@@ -159,6 +175,7 @@ else {
     </div>
     
 <?php
+	}
     include($documentRoot.'tpl/footer.php');
 ?>
 

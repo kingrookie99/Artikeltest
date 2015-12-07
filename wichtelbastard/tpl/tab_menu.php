@@ -1,5 +1,13 @@
 <?php
 if(isset($_SESSION['loggedIn'])) {
+
+    // Anzahl der gespeicherten Wünsche
+    $result = mysql_query("SELECT COUNT(id) FROM `wishes`") or trigger_error(mysql_error());
+    $count_wishes = mysql_fetch_row($result);
+    $count_wishes = $count_wishes[0];
+    echo "<div class='count_wishes'>Beim Wichtelbastard eingegangene Wünsche:<span>".$count_wishes."</span></div>";
+
+
     if(isset($_SESSION['admin'])&& $_SESSION['admin']==1)
     {
 ?>
@@ -35,3 +43,12 @@ if(isset($_SESSION['loggedIn'])) {
     }
 }
         ?>
+        
+        
+        
+<?php        
+
+
+
+
+?>
